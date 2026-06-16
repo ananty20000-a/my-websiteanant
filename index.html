@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Belated Birthday Lakshyaa! 🎀</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@500;700&display=swap');
+
+        :root {
+            --pink-soft: #ffb7b2;
+            --pink-bg: #ffe5ec;
+            --pink-dark: #ff758f;
+            --cream: #fff0f3;
+            --purple-soft: #e8dbfc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--pink-bg), var(--purple-soft));
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--pink-dark);
+        }
+
+        /* Floating Background Emojis */
+        .floating-emoji {
+            position: absolute;
+            font-size: 24px;
+            animation: float Up 6s linear infinite;
+            opacity: 0.6;
+            z-index: 0;
+            bottom: -50px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% {
+                transform: translateY(-105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 600px;
+            width: 90%;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(255, 117, 143, 0.2);
+            text-align: center;
+            border: 4px solid #ffffff;
+            z-index: 10;
+        }
+
+        /* Header Style */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px #ffffff;
+        }
+
+        .pookie-badge {
+            background-color: var(--pink-dark);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 117, 143, 0.3);
+        }
+
+        /* Aesthetic Image Placeholder Card */
+        .aesthetic-card {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .art-box {
+            background: linear-gradient(45deg, #ffc6ff, #bdb2ff);
+            height: 220px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        /* Message Box */
+        .message-box {
+            background: var(--cream);
+            border-left: 5px solid var(--pink-soft);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .message-box p {
+            margin-bottom: 10px;
+        }
+
+        /* Interactive Buttons */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, var(--pink-soft), var(--pink-dark));
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-family: 'Fredoka', sans-serif;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 117, 143, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 117, 143, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Pop-up Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .modal {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            max-width: 400px;
+            width: 85%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal h2 { margin-bottom: 15px; }
+        .modal p { font-size: 1.1rem; margin-bottom: 20px; line-height: 1.5;}
+
+        .close-btn {
+            background: #4a4a4a;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Music note indicator styling */
+        .footer-note {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <span class="pookie-badge">✨ MOST IMPORTANT HUMAN ALERT ✨</span>
+            <h1>Happy Belated Birthday, Lakshyaa! 🍰🎈</h1>
+            <p>I know I missed the exact date, but you deserve to be celebrated every single day anyway! 🧸💖</p>
+        </div>
+
+        <div class="aesthetic-card">
+            <div class="art-box">
+                🌸👑✨
+            </div>
+            <p style="margin-top: 10px; font-style: italic; font-size: 0.9rem; color: #888;">
+                POV: Celebrating the prettiest pookie ever 🎀
+            </p>
+        </div>
+
+        <div class="message-box">
+            <h3 style="margin-bottom: 8px;">Dear Lakshyaa, 💌</h3>
+            <p>Time got the best of me, but I couldn't let your birthday season pass without reminding you of how absolutely amazing you are. You bring so much sparkle and joy into the world! 🌟</p>
+            <p>May this year bring you all the endless happiness, cozy vibes, iced coffees (or favorite treats ☕), and everything sweet your beautiful heart desires.</p>
+            <p><b>Happy, Happy Birthday! 🎉💖</b></p>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn" onclick="openModal('compliment')">Click for a Pookie Compliment 🧸</button>
+            <button class="btn" onclick="openModal('wish')">Virtual Birthday Gift 🎁</button>
+            <button class="btn" onclick="triggerConfetti Explosion()">Shower with Love! 💞</button>
+        </div>
+
+        <div class="footer-note">
+            Made with 🤍 and lots of apologies! ✨
+        </div>
+    </div>
+
+    <div class="overlay" id="modalOverlay">
+        <div class="modal">
+            <h2 id="modalTitle">Title</h2>
+            <p id="modalContent">Content</p>
+            <button class="close-btn" onclick="closeModal()">Close 💕</button>
+        </div>
+    </div>
+
+    <script>
+        // Array of cute pookie emojis to float around
+        const emojis = ['💖', '🌸', '✨', '🎀', '🧸', '🍰', '🎈', '💘', '🤍', '🧁'];
+
+        function createFloatingEmoji(isExplosion = false) {
+            const emojiEl = document.createElement('div');
+            emojiEl.classList.add('floating-emoji');
+            
+            // Randomly select an emoji
+            emojiEl.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // Random styling for variety
+            const randomLeft = Math.random() * 100;
+            const randomSize = Math.random() * (35 - 18) + 18; // Size between 18px and 35px
+            const randomDuration = Math.random() * (7 - 4) + 4; // Speed between 4s and 7s
+
+            emojiEl.style.left = `${randomLeft}vw`;
+            emojiEl.style.fontSize = `${randomSize}px`;
+            emojiEl.style.animationDuration = `${randomDuration}s`;
+
+            if (isExplosion) {
+                // If it's a shower explosion, launch them faster from anywhere
+                emojiEl.style.bottom = '-20px';
+                emojiEl.style.animationDuration = `${Math.random() * (3 - 1.5) + 1.5}s`;
+            }
+
+            document.body.appendChild(emojiEl);
+
+            // Remove emoji after animation finishes
+            setTimeout(() => {
+                emojiEl.remove();
+            }, randomDuration * 1000);
+        }
+
+        // Generate gentle background floating emojis constantly
+        setInterval(() => {
+            createFloatingEmoji(false);
+        }, 400);
+
+        // Interactive Button Modals logic
+        const compliments = [
+            "Lakshyaa, your vibe is completely unmatched. You radiate pure joy! 🌸✨",
+            "You are literally the definition of 'pookie'. Total cuteness and sweetheart energy! 🧸💖",
+            "The world is 100x brighter just because you are in it! Don't ever stop shining. ⭐🌸",
+            "You deserve an award for being the most wonderful person ever! 🏆💞"
+        ];
+
